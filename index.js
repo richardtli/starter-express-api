@@ -2,7 +2,7 @@ const express = require('express')
 const request = require('request');
 const dotenv = require('dotenv');
 
-const port = 3000
+const port = process.env.PORT || 3000
 
 global.access_token = ''
 
@@ -11,7 +11,7 @@ dotenv.config()
 var spotify_client_id = process.env.SPOTIFY_CLIENT_ID
 var spotify_client_secret = process.env.SPOTIFY_CLIENT_SECRET
 
-var spotify_redirect_uri = 'https://real-pink-bunny-toga.cyclic.app/auth/callback'
+var spotify_redirect_uri = 'https://incandescent-cat-d5946f.netlify.app/auth/callback'
 
 var generateRandomString = function (length) {
   var text = '';
@@ -73,5 +73,5 @@ app.get('/auth/token', (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(`Listening at http://localhost:${port}`)
+  console.log(`Listening at ${port}`)
 })
